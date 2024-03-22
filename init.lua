@@ -254,6 +254,22 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- Set tabs to 4 spaces
+vim.o.tabstop = 4 -- sets the number of spaces for tabs
+vim.o.softtabstop = 4 -- sets the number of spaces for <Tab> and <BS> in insert mode
+vim.o.shiftwidth = 4 -- sets the number of spaces for auto-indentation
+vim.o.expandtab = true -- ensures that when you press <Tab>, it inserts spaces
+
+-- Allows me to see the empty spaces for tabs
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = '▸ ', -- sets the character to display for tabs as a right arrow (▸) followed by a space
+    trail = '·', -- sets the character to display for trailing spaces as a middle dot (·)
+    nbsp = '·', -- sets the character to display for non-breaking spaces as a middle dot (·)
+}
+
+vim.wo.relativenumber = true
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -267,6 +283,13 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- [[ Steven Custom Keymaps ]]
 -- Toggle Neotree
 vim.api.nvim_set_keymap('n', '<A-q>', ':Neotree<CR>', { noremap = true, silent = true })
+
+-- Move Tabs
+-- Remap PageUp to switch to the previous tab
+vim.api.nvim_set_keymap('n', '<PageUp>', ':tabprevious<CR>', { noremap = true, silent = true })
+
+-- Remap PageDown to switch to the next tab
+vim.api.nvim_set_keymap('n', '<PageDown>', ':tabnext<CR>', { noremap = true, silent = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -439,8 +462,8 @@ end
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
+  clangd = {},
+  gopls  = {},
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
