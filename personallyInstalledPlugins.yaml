@@ -1,11 +1,4 @@
 plugins:
   - "autopairs"
-  - "filetree"
 
 config-modifications:
-  filetree:
-    path:
-      - "~/.local/share/nvim/lazy/neo-tree.nvim/lua/neo-tree/defaults.lua"
-    modification:
-      - "Add the following line at line 378, just add it don't delete anything."
-      - '["<a-z>"] = "expand_all_nodes",'

@@ -198,9 +198,9 @@ vim.o.expandtab = true -- ensures that when you press <Tab>, it inserts spaces
 -- Allows me to see the empty spaces for tabs
 vim.opt.list = true
 vim.opt.listchars = {
-    tab = '▸ ', -- sets the character to display for tabs as a right arrow (▸) followed by a space
-    trail = '·', -- sets the character to display for trailing spaces as a middle dot (·)
-    nbsp = '·', -- sets the character to display for non-breaking spaces as a middle dot (·)
+  tab = '▸ ', -- sets the character to display for tabs as a right arrow (▸) followed by a space
+  trail = '·', -- sets the character to display for trailing spaces as a middle dot (·)
+  nbsp = '·', -- sets the character to display for non-breaking spaces as a middle dot (·)
 }
 
 vim.wo.relativenumber = true
@@ -910,7 +910,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
